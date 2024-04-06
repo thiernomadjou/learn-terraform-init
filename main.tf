@@ -34,12 +34,24 @@ module "ec2-instance" {
   instance_name = random_pet.instance.id
 }
 
+# module "hello" {
+#   source  = "joatmon08/hello/random"
+#   version = "4.0.0"
+
+#   hello        = "World"
+#   second_hello = random_pet.instance.id
+
+#   secret_key = "secret"
+# }
+
 module "hello" {
   source  = "joatmon08/hello/random"
-  version = "4.0.0"
+  version = "6.0.0"
 
-  hello        = "World"
-  second_hello = random_pet.instance.id
+  hellos = {
+    hello        = random_pet.instance.id
+    second_hello = "World"
+  }
 
-  secret_key = "secret"
+  some_key = "secret"
 }
